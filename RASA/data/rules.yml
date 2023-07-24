@@ -1,0 +1,53 @@
+version: "3.1"
+
+rules:
+
+# - rule: greeting
+#   steps:
+#   - action: utter_greet
+#   - intent: greet
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Suggestion asking
+  steps:
+  - intent: greet
+  - action: utter_help
+
+- rule: genre asking
+  steps:
+  - intent: suggest
+  - action: utter_genre
+
+- rule: giving genre and asking for netflix form
+  steps:
+  - intent: give_genre
+  - action: utter_netflix_f
+
+
+
+# - rule: activate netflix Form
+#   steps:
+#   - intent: what_on_flix
+#   - action: simple_netflix_form
+#   - active_loop: simple_netflix_form
+
+# - rule: subit Netflix form
+#   condition:
+#   - active_loop: simple_netflix_form
+#   steps:
+#   - action: simple_netflix_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   - action: action_say_genre_type
+
+
