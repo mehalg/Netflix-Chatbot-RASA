@@ -1,0 +1,77 @@
+version: "3.1"
+
+intents:
+  - greet
+  - suggest
+  - give_genre
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - greet_with_name
+
+entities:
+  - genre
+  - name
+
+slots:
+   genre:
+     type: text
+     influence_conversation: true  
+     mappings:
+     - type: from_entity
+       entity: genre
+   name:
+     type: text
+     influence_conversation: true
+     mappings:
+     - type: from_entity
+       entity: name
+forms:
+  simple_netflix_form:
+    required_slots:
+      - genre_type
+      - duration_type
+
+responses:
+  utter_greet:
+  - text: "Hey! I'm FlixBot, your friendly Netflix chatbot. By what name can I call you?"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+  
+  utter_help:
+  - text: "Hello, {name}! How can I help you today?"
+
+  utter_genre:
+  - text: "I'd be more than happy to help you find something great to watch. What kind of genre are you in the mood for today? Thriller, Feel-good, rom-com, anime, or something else?"
+
+  utter_netflix_f:
+  - text: "That's a great choice, {name}! Can you please provide me with the following information which will help me find the perfect {genre} for you?"
+
+  utter_ask_genre_type:
+  - text: What genre do you want?
+ 
+  utter_ask_duration_type:
+  - text: Do you want to watch a movie or a show?
+
+  
+  utter_goodbye:
+  - text: "You're welcome, John! I'm glad I could assist you in finding a movie. Enjoy watching "Crazy, Stupid, Love"! If you have any more questions or need further recommendations, feel free to ask. Happy viewing!"
+
+actions:
+- utter_greet
+- utter_help
+- utter_genre
+- utter_netflix_f
+- utter_iamabot
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

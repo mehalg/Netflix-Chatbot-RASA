@@ -1,0 +1,59 @@
+version: "3.1"
+
+stories:
+
+- story: suggestion1
+  steps:
+  - action: utter_greet
+  - intent: greet_with_name
+    entities:
+    - name: Mehal
+    - slot_was_set:
+    - name: Mehal
+  - action: utter_help
+  - intent: suggest
+  - action: utter_genre
+  - intent: give_genre
+    entities:
+    - genre: True crime
+    - slot_was_set:
+    - genre: True crime
+  - action: utter_netflix_f
+  - intent: affirm
+
+- story: gretting path
+  steps:
+  - intent: greet_with_name
+  - action: utter_help
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: what_on_flix
+#   - action: simple_netflix_form
+#   - active_loop: simple_netflix_form
+#   - slot_was_set:
+#     - requested_slot: genre_type
+#   - intent: Thriller
+#     entities:
+#     - genre_type: Thriller/Horror
+#   - slot_was_set:
+#     - genre_type: Thriller/Horror
+#   - action: simple_netflix_form
+#   - slot_was_set:
+#     - requested_slot: duration_type
+#   - intent: give_genre
+#     entities:
+#     - duration_type: movie
+#   - slot_was_set:
+#     - duration_type: movie
+#   - action: simple_netflix_form
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: utter_anime_m
+#   - intent: mood_great
+#   - intent: ask_again
+#   - action: utter_greet
+#   - intent: mood_great
+#   - intent: mood_great
+#   - action: d
