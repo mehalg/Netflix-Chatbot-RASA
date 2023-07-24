@@ -1,0 +1,14 @@
+version: "3.1"
+nlu:
+- intent: what_on_flix
+  examples: |
+    - wht to watch on netflix
+- intent: Thriller
+  examples: |
+    - [thriller/horror]{"entity": "genre_type", "value": "Thriller/Horror"}
+- intent: give_genre
+  examples: |
+    - [movie](duration_type)
+- intent: ask_again
+  examples: |
+    - stop
